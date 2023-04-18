@@ -5,7 +5,6 @@ metadata:
   name: mysql-config
   namespace: roboshop
 data:
-  MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
   MYSQL_DATABASE: "cities"
 ---
 apiVersion: v1
@@ -17,6 +16,7 @@ type: Opaque
 data:
   MYSQL_USER: c2hpcHBpbmc=
   MYSQL_PASSWORD: c2VjcmV0
+  MYSQL_ROOT_PASSWORD: "cm9vdDEyMw=="
 ---
 apiVersion: v1
 kind: Pod
@@ -57,3 +57,6 @@ spec:
   - port: 80
     targetPort: 8080
 
+
+#echo -n shipping | base64
+#echo -n root123 | base64
