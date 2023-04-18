@@ -16,7 +16,7 @@ metadata:
     tier: app
 spec:
   containers:
-  - name: web
+  - name: catalogue
     imagePullPolicy: Always
     image: rohitsingirikonda/catalogue:k8
     envFrom:
