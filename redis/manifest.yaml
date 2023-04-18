@@ -1,24 +1,5 @@
 ---
 apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: redis-config
-  namespace: roboshop
-data:
-  redis_DATABASE: "cities"
----
-apiVersion: v1
-kind: Secret
-metadata:
-  name: redis-secret
-  namespace: roboshop
-type: Opaque
-data:
-  redis_USER: c2hpcHBpbmc=
-  redis_PASSWORD: c2VjcmV0
-  redis_ROOT_PASSWORD: "cm9vdDEyMw=="
----
-apiVersion: v1
 kind: Pod
 metadata:
   name: redis
@@ -31,6 +12,8 @@ spec:
   - name: redis
     imagePullPolicy: Always
     image: rohitsingirikonda/redis:k8
+    ports:
+      - containerPort:6379
     resources:
       requests:
         cpu: "100m"
@@ -50,7 +33,7 @@ spec:
     tier: db
   ports:
   - port: 80
-    targetPort: 8080
+    targetPort: 6379
 
 
 #echo -n shipping | base64
