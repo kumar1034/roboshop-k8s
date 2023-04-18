@@ -11,7 +11,7 @@ spec:
   containers:
   - name: web
     imagePullPolicy: Always
-    image: rohitsingirikonda/web:v2
+    image: rohitsingirikonda/web:k8
     resources:
       requests:
         cpu: "100m"
